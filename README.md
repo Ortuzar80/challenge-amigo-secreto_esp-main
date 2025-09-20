@@ -1,0 +1,2 @@
+Este proyecto demuestra la implementación de lógica de programación para resolver un problema cotidiano (el sorteo de amigos secretos) mediante código. La lógica es la base del razonamiento computacional, enseñando a transformar una idea o problema en una secuencia de instrucciones claras (un algoritmo) que la computadora puede seguir.
+El proyecto utiliza JavaScript, un lenguaje que funciona directamente en el navegador y es una excelente puerta de entrada para aprender lógica.
