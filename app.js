@@ -1,62 +1,61 @@
+// Paso 1: Inicialización
+// Declaramos una variable de tipo array, usando 'let', para almacenar los nombres de los amigos [4, 5].
 let amigos = []; 
 
-// Función para agregar nombres a la lista [6]
+// Función para agregar nombres
 function agregarAmigo() {
-    // Capturar el valor del campo de entrada [6]. Usamos document.getElementById para obtener el texto ingresado [6, 7].
-    let nombre = document.getElementById('nombre').value; // 'nombre' sería el ID del campo de texto
+    // 1. Capturar el valor del campo de entrada (asumimos el ID 'nombreInput') [6].
+    let nombre = document.getElementById('nombreInput').value;
 
-    // Validar la entrada: Implementar una validación para asegurarse de que el campo no esté vacío [6].
+    // 2. Validar la entrada: Asegurarse de que el campo no esté vacío [6].
     if (nombre.trim() === "") {
-        // Mostrar un alert con el mensaje de error [6, 8, 9].
+        // Mostrar un alert con el mensaje de error si está vacío [6].
         alert("Por favor, inserte un nombre."); 
-        return; // Detiene la función si la validación falla.
+        return; // Detiene la ejecución si la validación falla.
     }
 
-    // Actualizar el array de amigos: Si el valor es válido, añadirlo al arreglo usando el método .push() [6, 10].
+    // 3. Actualizar el array de amigos: Si es válido, añadirlo al arreglo usando el método .push() [6, 7].
     amigos.push(nombre);
 
-    // Limpiar el campo de entrada: Restablecer el campo de texto a una cadena vacía después de añadir [6, 11].
+    // 4. Limpiar el campo de entrada: Restablecer el campo de texto a una cadena vacía [6].
     document.getElementById('nombreInput').value = '';
 
-    // Actualizar la lista visible en HTML [12].
+    // 5. Mostrar la lista actualizada.
     mostrarListaAmigos(); 
 }
 
-// Función que recorre el array y actualiza la lista HTML [12]
+// Función para recorrer el array y actualizar la lista HTML
 function mostrarListaAmigos() {
-    // 1. Obtener el elemento de la lista [12]. Asumimos que el ID de la lista UL/OL es 'listaAmigos'
+    // 1. Obtener el elemento de la lista (asumimos el ID 'listaAmigos') [8].
     let lista = document.getElementById('listaAmigos');
     
-    // 2. Limpiar la lista existente para evitar duplicados, usando innerHTML = "" [12].
+    // 2. Limpiar la lista existente para evitar duplicados, usando innerHTML = "" [8].
     lista.innerHTML = ""; 
 
-    // 3. Iterar sobre el arreglo [12]. Utilizamos un bucle for.
+    // 3. Iterar sobre el arreglo usando un bucle for [8].
     for (let i = 0; i < amigos.length; i++) {
-        // 4. Agregar elementos a la lista [12]. Se utiliza innerHTML para insertar el nuevo elemento <li>.
+        // 4. Agregar elementos a la lista, creando un nuevo elemento <li> para cada amigo [8].
         lista.innerHTML += `<li>${amigos[i]}</li>`;
     }
 }
 
-// Función que realiza la selección aleatoria del amigo secreto [13]
+// Función que realiza la selección aleatoria del amigo secreto
 function sortearAmigo() {
-    // Asumimos que el ID del elemento donde se mostrará el resultado es 'resultadoSorteo'
+    // Asumimos que el ID del elemento donde se mostrará el resultado es 'resultadoSorteo' [9].
     let elementoResultado = document.getElementById('resultadoSorteo');
 
-    // 1. Validar que haya amigos disponibles: comprobar si el array amigos no está vacío [13].
+    // 1. Validar que haya amigos disponibles: Comprobar si el array amigos no está vacío [9].
     if (amigos.length === 0) {
+        // Asignar un texto al elemento de resultado [10].
         elementoResultado.innerHTML = "No hay amigos para sortear. Por favor, agregue nombres.";
         return;
     }
 
-    // 2. Generar un índice aleatorio [13]. 
-    // Se usan Math.random() y Math.floor() para obtener un índice aleatorio dentro del rango del arreglo [11, 13].
+    // 2. Generar un índice aleatorio. Se usan Math.random() y Math.floor() para obtener un índice aleatorio [9, 11].
     let indiceAleatorio = Math.floor(Math.random() * amigos.length); 
 
-    // 3. Obtener el nombre sorteado [13].
+    // 3. Obtener el nombre sorteado utilizando el índice aleatorio para acceder al arreglo [9].
     let amigoSorteado = amigos[indiceAleatorio];
 
-    // 4. Mostrar el resultado [13].
-    // Actualizar el contenido del elemento de resultado utilizando innerHTML [7, 13].
-    elementoResultado.innerHTML = `¡El amigo secreto sorteado es: <strong>${amigoSorteado}</strong>!`; 
-}
-
+    // 4. Mostrar el resultado: Actualizar el contenido del elemento utilizando innerHTML [9].
+    elementoResultado.innerHTML = `El amigo secreto sorteado es: <strong>${amigoSorteado}</strong>`; }
